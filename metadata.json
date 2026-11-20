@@ -1,0 +1,6 @@
+{
+  "name": "CBS Manual AI Assistant",
+  "description": "Intelligent Finacle CBS knowledge and reference assistant for Department of Posts, India employees, grounded in POSB CBS Manual 2026 Part I and Part II.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
