@@ -62,15 +62,17 @@ export function Sidebar({
 
   const sidebarContent = (
     <aside className="flex flex-col h-full w-72 bg-white dark:bg-[#191816] border-r border-stone-200 dark:border-stone-800 select-none">
-      {/* Brand header */}
-      <div className="px-4 py-3.5 border-b border-stone-200 dark:border-stone-800 flex items-center justify-between gap-2">
+      {/* Brand header — seamless India Post Postal Red bar */}
+      <div className="min-h-16 py-2 px-4 bg-[#C8102E] text-white border-b-[3px] border-[#FFCD00] flex items-center justify-between gap-2">
         <div className="flex items-center gap-2.5 min-w-0">
-          <IndiaPostLogo className="w-8 h-8 shrink-0" />
+          <div className="shrink-0 rounded-lg ring-1 ring-white/30">
+            <IndiaPostLogo className="w-8 h-8" />
+          </div>
           <div className="min-w-0">
-            <div className="font-display font-bold text-sm leading-tight text-stone-900 dark:text-stone-100 truncate">
-              CBS Manual AI Assistant
+            <div className="font-display font-bold text-sm leading-tight text-white truncate">
+              India Post CBS
             </div>
-            <div className="text-[11px] text-stone-500 dark:text-stone-400 truncate">
+            <div className="text-[11px] text-[#FFCD00] font-medium truncate mt-0.5">
               Department of Posts, India
             </div>
           </div>
@@ -78,7 +80,7 @@ export function Sidebar({
         <button
           type="button"
           onClick={onCloseMobile}
-          className="lg:hidden p-1.5 rounded-md text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800"
+          className="lg:hidden p-1.5 rounded-md text-white/90 hover:bg-white/15 cursor-pointer"
           aria-label="Close navigation menu"
         >
           <X className="w-5 h-5" />

@@ -565,49 +565,51 @@ export default function App() {
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
-        {/* India Post Red & Gold Top Accent Strip */}
-        <div className="h-1 w-full bg-gradient-to-r from-[#C8102E] via-[#C8102E] to-[#FFCD00] shrink-0 no-print" />
-
-        {/* Clean Top Navigation Bar (1 row, 3 zones) */}
-        <header className="shrink-0 h-14 px-4 sm:px-6 border-b border-stone-200 dark:border-stone-800 bg-white dark:bg-[#191816] flex items-center justify-between gap-4 no-print">
-          {/* Zone 1: Mobile menu button + Brand / Section Title */}
+        {/* India Post Postal Red Header */}
+        <header className="shrink-0 min-h-16 py-2 px-4 sm:px-6 bg-[#C8102E] text-white border-b-[3px] border-[#FFCD00] flex items-center justify-between gap-4 no-print">
+          {/* Zone 1: Mobile menu button + Brand / Section Title + Attribution */}
           <div className="flex items-center gap-2.5 min-w-0">
             <button
               type="button"
               onClick={() => setMobileSidebarOpen(true)}
-              className="lg:hidden p-2 -ml-2 rounded-lg text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 cursor-pointer"
+              className="lg:hidden p-2 -ml-2 rounded-lg text-white hover:bg-white/15 cursor-pointer shrink-0"
               aria-label="Open navigation menu"
             >
               <Menu className="w-5 h-5" />
             </button>
-            <div className="flex items-center gap-2 lg:hidden min-w-0">
-              <IndiaPostLogo className="w-7 h-7 shrink-0" />
-              <span className="font-display font-bold text-sm truncate text-stone-900 dark:text-stone-100">
-                CBS Manual AI Assistant
-              </span>
-            </div>
-            <div className="hidden lg:flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 whitespace-nowrap">
-              <span className="font-display font-semibold text-stone-900 dark:text-stone-100">
-                {activeTab === 'assistant'
-                  ? 'AI Assistant'
-                  : activeTab === 'lookup'
-                    ? 'Manual Lookup'
-                    : 'Finacle Menu Codes'}
-              </span>
-              <span aria-hidden="true">/</span>
-              <span>POSB CBS Manual 2026</span>
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="lg:hidden shrink-0 rounded-lg ring-1 ring-white/30">
+                <IndiaPostLogo className="w-8 h-8" />
+              </div>
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="font-display font-bold text-sm sm:text-[15px] leading-tight text-white truncate">
+                    <span className="lg:hidden">CBS Manual AI Assistant</span>
+                    <span className="hidden lg:inline">
+                      {activeTab === 'assistant'
+                        ? 'CBS Manual AI Assistant'
+                        : activeTab === 'lookup'
+                          ? 'Manual Lookup — POSB CBS Manual 2026'
+                          : 'Finacle Menu Codes — POSB CBS Manual 2026'}
+                    </span>
+                  </span>
+                </div>
+                <div className="text-[11px] sm:text-xs font-medium text-[#FFCD00] leading-snug truncate mt-0.5">
+                  Prepared by Kalandi Charan Sahoo, PA, Dhenkanal RS SO
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Zone 2: Quick Workspace Links on desktop */}
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-stone-600 dark:text-stone-400">
+          <nav className="hidden md:flex items-center gap-5 xl:gap-6 text-sm font-medium text-white/90">
             <button
               type="button"
               onClick={() => setActiveTab('assistant')}
               className={`py-1 transition-colors whitespace-nowrap cursor-pointer ${
                 activeTab === 'assistant'
-                  ? 'text-[#C8102E] dark:text-[#FFCD00] underline decoration-2 underline-offset-8'
-                  : 'hover:text-stone-900 dark:hover:text-stone-100'
+                  ? 'text-[#FFCD00] font-semibold underline decoration-[#FFCD00] decoration-2 underline-offset-8'
+                  : 'hover:text-white'
               }`}
             >
               Assistant
@@ -617,8 +619,8 @@ export default function App() {
               onClick={() => setActiveTab('lookup')}
               className={`py-1 transition-colors whitespace-nowrap cursor-pointer ${
                 activeTab === 'lookup'
-                  ? 'text-[#C8102E] dark:text-[#FFCD00] underline decoration-2 underline-offset-8'
-                  : 'hover:text-stone-900 dark:hover:text-stone-100'
+                  ? 'text-[#FFCD00] font-semibold underline decoration-[#FFCD00] decoration-2 underline-offset-8'
+                  : 'hover:text-white'
               }`}
             >
               Manual Lookup
@@ -628,8 +630,8 @@ export default function App() {
               onClick={() => setActiveTab('menus')}
               className={`py-1 transition-colors whitespace-nowrap cursor-pointer ${
                 activeTab === 'menus'
-                  ? 'text-[#C8102E] dark:text-[#FFCD00] underline decoration-2 underline-offset-8'
-                  : 'hover:text-stone-900 dark:hover:text-stone-100'
+                  ? 'text-[#FFCD00] font-semibold underline decoration-[#FFCD00] decoration-2 underline-offset-8'
+                  : 'hover:text-white'
               }`}
             >
               Finacle Menus
@@ -637,14 +639,14 @@ export default function App() {
             <button
               type="button"
               onClick={() => setPdfRequest({ part: 1, page: 1 })}
-              className="py-1 hover:text-stone-900 dark:hover:text-stone-100 transition-colors whitespace-nowrap cursor-pointer"
+              className="py-1 hover:text-[#FFCD00] transition-colors whitespace-nowrap cursor-pointer"
             >
               Part I PDF
             </button>
             <button
               type="button"
               onClick={() => setPdfRequest({ part: 2, page: 1 })}
-              className="py-1 hover:text-stone-900 dark:hover:text-stone-100 transition-colors whitespace-nowrap cursor-pointer"
+              className="py-1 hover:text-[#FFCD00] transition-colors whitespace-nowrap cursor-pointer"
             >
               Part II PDF
             </button>
@@ -656,7 +658,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={handleNewChat}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#C8102E] hover:bg-[#A00D24] text-white text-xs font-medium transition-colors cursor-pointer whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FFCD00] hover:bg-[#f0be00] text-stone-950 text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shadow-xs"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>New Chat</span>
@@ -665,7 +667,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => setPdfRequest({ part: 1, page: 1 })}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#C8102E] hover:bg-[#A00D24] text-white text-xs font-medium transition-colors cursor-pointer whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FFCD00] hover:bg-[#f0be00] text-stone-950 text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shadow-xs"
               >
                 <BookOpen className="w-3.5 h-3.5" />
                 <span>Open Manual</span>
